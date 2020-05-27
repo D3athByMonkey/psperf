@@ -146,7 +146,7 @@ Function Write-BaseMetrics
         "\Process(*)\IO Read Operations/sec", 
         "\Process(*)\IO Write Operations/sec",
         "\Process(*)\IO Read Bytes/sec",  
-        "\Process(*)\IO Write Bytes/sec" -SampleInterval $sampleInternval -ErrorAction SilentlyContinue).CounterSamples | ?{$_.CookedValue -ne 0} | Group-Object InstanceName).Group
+        "\Process(*)\IO Write Bytes/sec" -SampleInterval $sampleInternval -ErrorAction SilentlyContinue).CounterSamples | Group-Object InstanceName).Group
         $totalProcessors = ($counters | ?{$_.Path -like "*processor(*"}).Count-1
 
         $topProcessor = $counters | ?{$_.Path -like "*% processor time*" -and $_.Path -notlike "*processor(*" -and $_.InstanceName -ne "idle" -and $_.InstanceName -notlike "*_total*" -and $_.Path -notlike "*#*"} | sort CookedValue -desc | select -First 10
