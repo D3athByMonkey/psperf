@@ -1,5 +1,5 @@
 # psperf
-A simple collection of Powershell related scripts to help identify potential performance impacting events on a Windows machine. 
+A simple collection of Powershell related scripts to help identify potential performance impacting events on a Windows core system.
 
 ``Not all scripts have been vetted, only the ones verifed will be uploaded. Contact for additional information.``
 
@@ -10,7 +10,13 @@ A simple Windows System performance analysis tool for Powershell. Simple way to 
 
 ![image](https://github.com/D3athByMonkey/psperf/blob/master/images/pstopexample.png?raw=true)
 
+# How to use this
+Once you're in powershell you can either save it and run it locally by running:
+* Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/D3athByMonkey/psperf/master/pstop.ps1 -OutFile pstop.ps1
+* .\pstop.ps1
 
+or just run it using:
+*  Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/D3athByMonkey/psperf/master/pstop.ps1 | Invoke-Expression
 
 #to do
 
