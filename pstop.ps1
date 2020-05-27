@@ -93,7 +93,7 @@ Function Write-BaseMetrics
 
         if (($counters | ?{$_.Path -like "*processor(*"}).Count-1 -lt 4)
         {
-            for ($num=0; $num -le ($counters | ?{$_.Path -like "*processor(*"}).Count-1;$num++)
+            for ($num=0; $num -le ($counters | ?{$_.Path -like "*processor(*" -and $_.Path -notlike "*_total*"}).Count-1;$num++)
             {            
                 Write-Host ("Processor {0}: {1}`t" -f ($counters | ?{$_.Path -like "*processor(*"})[$num].Path.Split("(*)")[1], [int32]($counters | ?{$_.Path -like "*processor(*"}).CookedValue[$num]) -nonewline
             }
