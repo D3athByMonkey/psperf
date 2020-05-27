@@ -103,7 +103,7 @@ Function Write-BaseMetrics
             #This is messy but it does work. Calculate the amount of iterations needed per the amount of procs to display 4 proc data per line.
             $iterations = [int32](($counters | ?{$_.Path -like "*processor(*"}).Count-1)/4
             [System.Collections.ArrayList]$procCollection = @()
-            ($counters | ?{$_.Path -like "*processor(*" -and $_.Path -notlike "*total*"}) | %{$procCollection.Add($_)} | Out-Null
+            ($counters | ?{$_.Path -like "*processor(*" -and $_.Path -notlike "*_total*"}) | %{$procCollection.Add($_)} | Out-Null
 
             #Main iterations
             for($iteration=0; $iteration -lt $iterations;$iteration++)
