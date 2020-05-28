@@ -45,7 +45,7 @@ $ErrorActionPreference = "SilentlyContinue"
 #Feed in metric paths and parse out the instance, creating and formatting the output into a collection 
 Function Get-DiskPerf($Path)
 {
-    $nodeName = "\\" + $counters[0].Split("\")[2]
+    $nodeName = "\\" + $counters[0].Path.Split("\")[2]
 
     $diskTime = "\logicaldisk($path)\% disk time"
     $diskQueue = "\LogicalDisk($path)\Current Disk Queue Length"
