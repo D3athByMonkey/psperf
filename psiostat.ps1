@@ -1,4 +1,4 @@
-﻿<#
+<#
 .Synopsis
     
 
@@ -16,7 +16,7 @@
     
     Description
     -----------
-    Collections statistics on Disk IO
+    Collects statistics on Disk IO
 
 .EXMAPLE
     .\psiostat.ps1 -sampleInterval 5
