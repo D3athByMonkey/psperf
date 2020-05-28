@@ -95,7 +95,7 @@ Function Get-DiskPerf($Path)
         {
             $output = (Get-DiskPerf -Path $drive)
 
-           $collection.Add($output)
+           $collection.Add($output) | Out-Null
         }
         cls
         $collection | ft -a
