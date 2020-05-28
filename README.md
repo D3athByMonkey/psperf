@@ -21,6 +21,7 @@ or just run it using:
 
 # psiostat
 A poor mans version of iostat in linux. Gives non event tracing perf metrics on all logical disks.
+![image](https://github.com/D3athByMonkey/psperf/blob/master/images/iostat.png?raw=true)
 
 # How to use this
 Once you're in powershell you can either save it and run it locally by running:
