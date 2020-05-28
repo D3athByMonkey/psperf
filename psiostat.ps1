@@ -80,13 +80,13 @@ Function Get-DiskPerf($Path)
         #Counter Queries
         $counters = ((Get-Counter -Counter "\LogicalDisk(*)\Current Disk Queue Length", 
         "\LogicalDisk(*)\% Disk Time",
-        "\LogicalDisk(*)\Avg. Disk Read Queue Length",
-        "\LogicalDisk(*)\Avg. Disk Write Queue Length",
-        "\LogicalDisk(*)\Disk Transfers/sec",
         "\LogicalDisk(*)\Disk Reads/sec",
         "\LogicalDisk(*)\Disk Writes/sec",
         "\LogicalDisk(*)\Disk Read Bytes/sec",
         "\LogicalDisk(*)\Disk Write Bytes/sec",
+        "\LogicalDisk(*)\Avg. Disk Read Queue Length",
+        "\LogicalDisk(*)\Avg. Disk Write Queue Length",
+        "\LogicalDisk(*)\Disk Transfers/sec",
         "\LogicalDisk(*)\% Idle Time" -SampleInterval $sampleInternval -ErrorAction SilentlyContinue).CounterSamples | Group-Object InstanceName).Group
 
         $uniqueDrives = $counters | select InstanceName -Unique
