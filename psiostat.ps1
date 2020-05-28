@@ -60,15 +60,16 @@ Function Get-DiskPerf($Path)
 
     $outPutInfo = New-Object System.Object
     $outPutInfo | Add-Member -Type NoteProperty -Name "Disk" -Value $path
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Disk Time" -Value ([Math]::Round(($counters | ?{$_.Path -eq $nodeName+$diskTime}).CookedValue,2))
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Disk Queue" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskQueue}).CookedValue),2))
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Avg Disk Read Queue" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReadQueue}).CookedValue),2))
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Avg Disk Write Queue" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskWriteQueue}).CookedValue),2))
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Disk Transfers/sec" -Value  ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskTransfers}).CookedValue).2))
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Disk Reads/sec" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReads}).CookedValue),2))
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Disk Writes/sec" -Value  ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskWrites}).CookedValue),2))
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Disk Read KiloBytes/sec" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReadB}).CookedValue / 1024),2))
-    $outPutInfo | Add-Member -Type NoteProperty -Name "Diks Write KiloBytes/sec" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskWriteB}).CookedValue / 1024), 2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "% Time" -Value ([Math]::Round(($counters | ?{$_.Path -eq $nodeName+$diskTime}).CookedValue,2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "Reads/sec" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReads}).CookedValue),2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "Writes/sec" -Value  ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskWrites}).CookedValue),2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "Read KiloBytes/sec" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReadB}).CookedValue / 1024),2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "Write KiloBytes/sec" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskWriteB}).CookedValue / 1024), 2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "Queue" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskQueue}).CookedValue),2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "Avg Read Queue" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReadQueue}).CookedValue),2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "Avg Write Queue" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskWriteQueue}).CookedValue),2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "Transfers/sec" -Value  ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskTransfers}).CookedValue).2))
+
     $outPutInfo | Add-Member -Type NoteProperty -Name "Disk Idle" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskIdle}).CookedValue),2))
     return $outPutInfo;
 }
