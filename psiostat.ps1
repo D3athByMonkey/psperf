@@ -61,6 +61,7 @@ Function Get-DiskPerf($Path)
     $outPutInfo = New-Object System.Object
     $outPutInfo | Add-Member -Type NoteProperty -Name "Disk" -Value $path
     $outPutInfo | Add-Member -Type NoteProperty -Name "% Time" -Value ([Math]::Round(($counters | ?{$_.Path -eq $nodeName+$diskTime}).CookedValue,2))
+    $outPutInfo | Add-Member -Type NoteProperty -Name "IOPS" -Value (([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReads}).CookedValue),2)) + ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskWrites}).CookedValue),2)))
     $outPutInfo | Add-Member -Type NoteProperty -Name "Reads/sec" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReads}).CookedValue),2))
     $outPutInfo | Add-Member -Type NoteProperty -Name "Writes/sec" -Value  ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskWrites}).CookedValue),2))
     $outPutInfo | Add-Member -Type NoteProperty -Name "Read KiloBytes/sec" -Value ([Math]::Round(([int32]($counters | ?{$_.Path -eq $nodeName+$diskReadB}).CookedValue / 1024),2))
