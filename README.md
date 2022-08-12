@@ -25,8 +25,8 @@ A poor mans version of iostat in linux. Gives non event tracing perf metrics on 
 
 # How to use this
 Once you're in powershell you can either save it and run it locally by running:
-* Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/D3athByMonkey/psperf/master/psiostat.ps1 -OutFile pstop.ps1
-* .\pstop.ps1
+* Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/D3athByMonkey/psperf/master/psiostat.ps1 -OutFile psiostat.ps1
+* .\psiostat.ps1
 
 or just run it using:
 *  Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/D3athByMonkey/psperf/master/psiostat.ps1 | Invoke-Expression
